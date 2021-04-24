@@ -1,0 +1,65 @@
+#include <stdio.h>
+
+void count_sort(int a[],int n,int count[],int pos)
+{
+    int b[n];
+     
+    for(int l=0;l<n;l++)
+    {
+        int lsd=(a[l]/pos)%10;
+        count[lsd]++;
+    }
+    for(int i=1;i<n;i++)
+    {
+        count[i]=count[i]+count[i-1];
+    }
+    for(int k=n-1;k>=0;k--)
+    {
+        b[--count[(a[k]/pos)%10]]=a[k];
+    }
+    for(int m=0;m<n;m++)
+    {
+        a[m]=b[m];
+    }
+    
+}
+int getmax(int a[],int n)
+{
+    int maxim=a[0];
+    for(int i=0;i<n;i++)
+    {
+        if(maxim<a[i])
+        {
+            maxim=a[i];
+        }
+        
+    }
+    return maxim;
+}
+
+void radix_sort(int a[],int n,int count[])
+{
+    int max;
+    max = getmax(a,n);
+    int pos;
+    for(pos=1; (max/pos)>0; pos*=10)
+    {
+        count_sort(a,n,count,pos);
+    }
+}
+
+int main()
+{
+   int n,i;
+   int count[10]={0};
+   printf("Enter the number of array elements\n");
+   scanf("%d",&n);
+   int a[n];
+   printf("Enter the array elements\n");
+   for(i=0;i<n;i++)
+   {
+       scanf("%d",&a[i]);
+   }
+   radix_sort(a,n,count);
+   return 0;
+}
