@@ -1,0 +1,10 @@
+Algorithm add(A,B,n)
+{
+  for(i=0;i<n;i++)
+  {
+    for(j=0;j<n;j++)
+    {
+      c[i,j]=a[i,j]+b[i,j]
+    }
+  }
+}
