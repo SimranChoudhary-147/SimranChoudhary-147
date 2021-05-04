@@ -1,0 +1,30 @@
+#include<stdio.h>
+ #define ssize 5
+ int main()
+ {
+     int top=-1;
+     int s[ssize];
+     int choice,item;
+     for(;;)
+     {
+         printf("1. add\t 2. delete\t 3. display\n");
+         printf("Enter your choice\n");
+         scanf("%d",&choice);
+         switch(choice)
+         {
+             case 1: printf("Enter the element to be inserted\n");
+                    scanf("%d",&item);
+                    s[++top]=item;
+                    break;
+            case 2:printf("The deleted item is %d\n",s[top]);
+                    top--;
+                    break;
+            case 3: for(int i=top;i>=0;i--)
+                    {
+                        printf("%d\t",s[i]);
+                    }
+         }
+         
+     }
+     return 0;
+ }
