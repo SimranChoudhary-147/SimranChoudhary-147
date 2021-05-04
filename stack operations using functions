@@ -1,0 +1,78 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+struct list
+{
+    int data;
+    struct list *link;
+}*top=NULL;
+
+void push(int m)
+{
+    struct list *tmp;
+    tmp=(struct list *)malloc(sizeof(struct list));
+    tmp->data=m;
+    tmp->link=NULL;
+    tmp->link=top;
+    top=tmp;
+}
+
+void pop()
+{
+    struct list *tmp;
+    if(top==NULL)
+        printf("\nStack is Empty!");
+    else
+    {
+        tmp=top;
+        printf("\nThe element deleted is: %d",tmp->data);
+        top=top->link;
+        free(tmp);
+    }
+}
+
+void disp()
+{
+    struct list *q;
+    if(top==NULL)
+        printf("\nStack is empty!");
+    else
+    {
+        q=top;
+        while(q!=NULL)
+        {
+            printf("%d\n",q->data);
+            q=q->link;
+        }
+    }
+}
+int main()
+{
+    int i,ele,ch;
+    for(;;)
+    {
+        printf("\n\tMENU");
+        printf("\n\t1.PUSH\n\t2.POP\n\t3.DISPLAY\n\t4.EXIT");
+        printf("\nEnter your choice:");
+        scanf("%d",&ch);
+        switch(ch)
+        {
+            case 1:
+                    printf("\nEnter the number to be inserted: ");
+                    scanf("%d",&ele);
+                    push(ele);
+                    break;
+            case 2:
+                    pop();
+                    break;
+            case 3:
+                    printf("\nStack elements are: ");
+                    disp();
+                    break;
+            case 4:
+                    exit(0);
+        }
+    }
+
+return 0;
+}
