@@ -1,0 +1,53 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+typedef struct name{
+    char names[50];
+    struct name *link;
+} *nm;
+
+nm insert(nm ROOT);
+
+int main()
+{
+    nm t, ROOT=NULL;
+    int n;
+    printf("Enter the number of names u wanna enter\n");
+    scanf("%d",&n);
+    while(n--)
+    {
+       ROOT=insert(ROOT);
+    }
+    for(t=ROOT;t!=NULL;t=t->link)
+    {
+        printf("%s\n",t->names);
+    }
+    return 0;
+}
+
+nm insert(nm ROOT)
+{
+    nm temp,l,p;
+    temp=(nm)malloc(sizeof(struct name));
+    temp->link=NULL;
+    scanf("%s",temp->names);
+    if(ROOT==NULL)
+        return temp;
+    for(p=0,l=ROOT;l!=NULL;p=l,l=l->link)
+    {
+        if(l->names[0]>temp->names[0] && l==ROOT)
+        {
+            temp->link=l;
+            return temp;
+        }
+        else if(l->names[0]>temp->names[0])
+        {
+            temp->link=l;
+            p->link=temp;
+            return ROOT;
+        }
+    }
+    p->link=temp;
+    l=temp;
+    return ROOT;
+}
