@@ -1,0 +1,32 @@
+#include<iostream>
+using namespace std;
+ 
+
+void Count(string str)                                           // Function to count uppercase, lowercase,
+                                                                 // special characters and numbers
+{
+    int cntupper = 0,cntlower = 0 , cntnumber = 0, cntspecial = 0;
+    for (int i = 0; i < str.length(); i++)
+    {
+        if (str[i] >= 'A' && str[i] <= 'Z')
+            cntupper++;
+        else if (str[i] >= 'a' && str[i] <= 'z')
+            cntlower++;
+        else if (str[i]>= '0' && str[i]<= '9')
+            cntnumber++;
+        else
+            cntspecial++;
+    }
+    cout << "Upper case letters: " << cntupper << endl;
+    cout << "Lower case letters : " << cntlower << endl;
+    cout << "Number : " << cntnumber << endl;
+    cout << "Special characters : " << cntspecial << endl;
+}
+ 
+// Driver function
+int main()
+{
+    string str = "*Coding^$$iSFun!!";
+    Count(str);
+    return 0;
+}
