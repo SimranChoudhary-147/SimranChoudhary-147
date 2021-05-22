@@ -1,0 +1,55 @@
+#include<bits/stdc++.h>
+using namespace std;
+int checkprime(long long int z)
+{
+    for(long long int i=2; i*i<=z; i++)
+    {
+        if(z%i==0)
+            return 0;
+    
+    }
+    return 1;
+}
+int main()
+{
+    int t;
+    cin>>t;
+    int cnt=0;
+    while(t--)
+    {
+        cnt+=1;
+        long long int z,i,j,root1;
+        cin>>z;
+        cout<<"Case #"<<cnt<<": ";
+        i=sqrt(z);
+        j=sqrt(z);
+        while(1)
+        {
+            i++;
+            if(checkprime(i))
+                break;
+        }
+        while(1)
+        {
+            
+            if(checkprime(j))
+                break;
+            j--;
+        }
+        if(i*j <= z) {
+            cout<<i*j<<endl;
+            continue;
+        }
+        root1=j;
+        while(1)
+        {
+            --root1;
+            if(checkprime(root1))
+                break;
+        }
+        cout<<j*root1<<endl;
+        
+        
+    }
+    
+}
