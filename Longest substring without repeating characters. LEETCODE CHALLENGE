@@ -1,0 +1,26 @@
+class Solution {
+public:
+    int lengthOfLongestSubstring(string s) 
+    {   long int count,maxi=0;
+        for(long int i=0;s[i]!='\0';i++)
+        {   count=0;
+            long int a[100]={0};
+            
+            for(long int j=i;s[j]!='\0';j++)
+            {
+               long int asci=s[j]-32;
+               a[asci]++;
+                if(a[asci]>1)
+                    break;
+    
+                else
+                    count++; 
+                if(maxi < count)
+                    maxi=count;
+            }
+            
+        }
+        
+       return maxi;
+    }
+};
