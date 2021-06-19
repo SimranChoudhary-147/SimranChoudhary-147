@@ -1,0 +1,28 @@
+class Solution{
+  public:
+    // root : the root Node of the given BST
+    // target : the target sum
+     vector <int> v;
+    int isPairPresent(struct Node *root, int target)
+    {
+        ins(root);
+        for(int i=0;i<v.size();i++)
+        {
+            int x=target-v[i];
+            if(x!=v[i])
+            {
+                if(binary_search(v.begin(),v.end(),x))
+                    return 1;
+            }
+        }
+        return 0;
+    }
+    void ins(struct Node*root)
+    {
+        if(root==NULL)
+        return;
+        ins(root->left);
+        v.push_back(root->data);
+        ins(root->right);
+    }
+};
