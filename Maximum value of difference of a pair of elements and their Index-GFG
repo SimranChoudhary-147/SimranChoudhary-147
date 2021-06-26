@@ -1,0 +1,27 @@
+class Solution {
+  public:
+    int maxValue(int arr[], int n) {
+       int minn=arr[0],maxx=arr[0];
+       for(int i=0;i<n;i++)
+       {
+           int val=arr[i]+i;
+           minn=min(minn,val);
+           maxx=max(maxx,val);
+       }
+       int diff1=maxx-minn;
+       
+       minn=arr[n-1],maxx=arr[n-1];
+       for(int i=0;i<n;i++)
+       {
+           int val=arr[n-1-i]+i;
+           minn=min(minn,val);
+           maxx=max(maxx,val);
+       }
+       int diff2=maxx-minn;
+    
+        if(diff1>diff2) return diff1;
+        else
+            return diff2;
+       
+    }
+};
