@@ -1,0 +1,19 @@
+
+int max_sum(int a[],int n)
+{
+    int currsum=0,currval=0;
+    for(int i=0;i<n;i++)
+    {
+        currsum+=a[i];
+        currval+=(i*a[i]);
+    }
+    int ans=currval;
+    for(int i=1;i<n;i++)
+    {
+        int nextval= currval-(currsum-a[i-1]) + a[i-1] * (n-1);
+        currval=nextval;
+        
+        ans=max(ans,nextval);
+    }
+    return ans;
+}
