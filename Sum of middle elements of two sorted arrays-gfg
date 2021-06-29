@@ -1,0 +1,17 @@
+class Solution {
+public:
+    int findMidSum(int a1[], int a2[], int n) {   //Here the basic idea is that the elements in the first array should have lesser value than the elements in the second array.
+                                                  //So we start scanning the elements of array1 from the rear end and the elements of the 2nd array from the front end and go on swapping.
+        int i=n-1,j=0;
+          while(a1[i] > a2[j])
+          {
+             swap(a2[j],a1[i]);
+             i--;
+             j++;
+          }
+    sort(a2,a2+n);
+    sort(a1,a1+n);
+          return a1[n-1]+a2[0];
+    }
+};
+
