@@ -1,0 +1,24 @@
+class Solution
+{
+    public:
+    //Function to find minimum number of operations that are required 
+    //to make the matrix beautiful.
+    int findMinOpeartion(vector<vector<int> > a, int n)
+    {
+    int mx=0,t=0; 
+    for(int i=0;i<n;i++)
+    { 
+        int r=0,c=0;
+        for(int j=0;j<n;j++)
+        {
+            r+=a[i][j];
+            c+=a[j][i]; 
+         
+        }
+         mx=max(mx,r);
+         t+=r;
+         mx=max(mx,c);
+    } 
+    return mx*n - t;
+    } 
+};
