@@ -1,0 +1,42 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int gcd(int u,int v)
+{
+    return (v != 0) ? gcd(v, u % v) : u;
+        
+}
+
+int main()
+{
+   int t;
+   cin>>t;
+   while(t--)
+   {
+       int n;
+        cin>>n;
+        vector<int>a(n),b(n),vis(n);
+        for(int i=0;i<n;i++)
+            cin>>a[i];
+        int d=0;
+        for(int i=0;i<n;i++){
+            int ind=0;
+            int maxi=0;
+            for(int j=0;j<n;j++){
+                if(!vis[j] && gcd(d,a[j])>maxi){
+                    maxi=gcd(d,a[j]);
+                    ind=j;
+                }
+            }
+            d=maxi;
+            vis[ind]=1;
+            b[i]=a[ind];
+        }
+        for(auto it : b)
+            cout<<it<<" ";
+        cout<<endl;
+   }
+   
+    return 0;
+}
