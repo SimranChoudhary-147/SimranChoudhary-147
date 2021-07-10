@@ -1,0 +1,19 @@
+class Solution {
+public:
+    int fib(int n) {
+        if(n<=1) {
+            return n; }
+         return memoization(n);
+    }
+    
+    int memoization(int N) {
+      int a[N+1];
+      a[1] = 1;
+       a[0]=0;
+
+      for (int i = 2; i <= N; i++) {
+          a[i] = a[i-1] + a[i-2];
+      }
+      return a[N];
+    }
+};
