@@ -1,0 +1,25 @@
+class Solution {
+public:
+     
+    ListNode*T = NULL;
+     
+     ListNode* reverseL(ListNode*head)
+     {
+      if(!head || !head->next){
+            T=head;
+            return head;
+        }
+            
+        reverseL(head->next)->next=head;
+        head->next=NULL;
+        return head;
+     }
+     
+    ListNode* reverseList(ListNode* head) {
+        
+      ListNode * temp= reverseL(head);
+      return T;
+    
+    
+    }
+};
