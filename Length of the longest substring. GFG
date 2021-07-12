@@ -1,0 +1,15 @@
+class Solution{
+  public:
+    int longestUniqueSubsttr(string s){
+    vector<int>st(256,-1);
+    int n=s.size();
+    int res=0,i=0;
+    for(int j=0;j<n;j++)
+    {
+        i=max(i,st[s[j]] +1);
+        res=max(res, j-i+1);
+        st[s[j]]=j;
+    }
+    return res;
+    }
+};
