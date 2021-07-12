@@ -1,0 +1,33 @@
+ class Solution {
+ public:
+    // You need to complete this function
+
+    // avoid space at the starting of the string in "move disk....."
+    void towerofhanoi(int n,int from,int to,int med,long long &count)
+    {
+        if(n==1) 
+        {
+           cout << "move disk 1 from rod "<< from << " to rod " << to << endl;
+            count++;
+            return;
+        }
+       
+        towerofhanoi(n-1, from, med, to,count);
+        
+        count++;
+        
+        cout << "move disk "<< n << " from rod "<< from << " to rod " << to << endl;
+        
+        towerofhanoi(n-1, med, to, from,count);
+        
+    }
+    long long toh(int n, int from, int to, int med) 
+    {
+        long long count=0;
+        towerofhanoi(n,from,to,med,count);
+        return count;
+    }
+        
+    
+
+};
