@@ -1,0 +1,40 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define ll long long int
+
+void solve()
+{
+    ll n;
+       cin>>n;
+       if(n&1)
+        cout<<"Bob\n";
+       else  if((n%(n-1))==0)
+       {
+           ll c = 0;
+           while(n>1)
+           {
+               n/=2;
+               c++;
+           }
+           if(c%2==0)
+            cout<<"Alice\n";
+           else cout<<"Bob\n";
+       }
+       else if(n%2==0)
+        cout<<"Alice\n";
+
+       else 
+        cout<<"Bob\n";
+    
+}
+
+int main()
+{
+  ll t;
+  cin>>t;
+  while(t--)
+  {
+      solve();
+  }
+  return 0;
+}
