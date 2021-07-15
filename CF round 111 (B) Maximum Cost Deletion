@@ -1,0 +1,29 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    int t; cin>>t;
+    while(t--)
+    {
+    int n,a,b; cin>>n>>a>>b;
+    string s; cin>>s; int count=1;
+    if(b>=0) {
+        int k=a*n + b*n;
+        cout<<k<<endl;
+    } 
+    else
+    {
+        for(int i=1;i<n;i++)
+        {
+            if(s[i]!=s[i-1])
+                count++;
+        }
+        count=count/2 +1;
+        int z= a*n + b*count;
+        cout<<z<<endl;
+    }
+    }
+
+    return 0;
+}
