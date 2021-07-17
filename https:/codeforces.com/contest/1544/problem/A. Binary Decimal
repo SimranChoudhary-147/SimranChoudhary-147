@@ -1,0 +1,28 @@
+#include <cstdlib>
+#include <bits/stdc++.h>
+
+using namespace std;
+#define ll long long 
+void solve()
+{
+    
+      string s;
+      cin>>s; ll n=s.size();
+      int mx=0;
+      for(ll i=0;i<n;i++)
+      { 
+         if(s[i]-'0' > mx)
+            mx=s[i]-'0';
+      }
+      cout<<mx<<endl;
+}
+int main()
+{
+   int t;
+   cin>>t;
+   while(t--)
+   {
+     solve();
+   }
+   return 0;
+}
