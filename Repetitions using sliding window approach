@@ -1,0 +1,35 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+void solve()
+{
+    string s; cin>>s; 
+    long int n=s.size();
+    long int mx=1,i=0,j=0;
+    
+    while(i < n && j < n)
+    { 
+       
+        if(s[i]==s[j+1]) 
+        {
+            j++;
+            mx=max(mx, (j-i) +1);
+        }
+       else
+        {
+            i=j+1; 
+            j=i;
+        }
+    }
+   
+    cout<<mx<<endl;
+    
+}
+
+int main()
+{
+    
+    solve();
+    return 0;
+}
+
