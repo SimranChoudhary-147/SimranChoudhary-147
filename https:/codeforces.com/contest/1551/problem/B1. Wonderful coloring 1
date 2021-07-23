@@ -1,0 +1,26 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+#define lli long long int
+void solve()
+{
+   string s; cin>>s; int c[27]={0}; int doublee=0,single=0;
+   for(int i=0;i<s.size();i++) { c[s[i]-97]++; }
+       
+   for(int i=0;i<26;i++)
+   {
+       if(c[i]>=2) { doublee++; }
+       else if(c[i]==1) { single++; }
+   }
+   cout<< doublee+(single/2) << endl;
+}
+
+int main()
+{
+    int t; cin>>t;
+    while(t--)
+    {
+        solve();
+    }
+
+}
