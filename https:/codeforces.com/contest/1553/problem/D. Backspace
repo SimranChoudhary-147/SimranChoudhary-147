@@ -1,0 +1,32 @@
+#include <iostream>
+ 
+using namespace std;
+void solve()
+{
+    string s,t; cin>>s>>t;
+    int slen=s.size()-1,tlen=t.size()-1;
+    
+    while(slen>=0 && tlen>=0)
+    {
+        if(s[slen]==t[tlen])
+        {
+            tlen--; slen--;
+            continue;
+        }
+        else
+            slen-=2;
+    }
+    if(tlen<0) cout<<"YES\n";
+    else cout<<"NO\n";
+}
+ 
+int main()
+{
+    int t; cin>>t;
+    while(t--)
+    {
+        solve();
+    }
+ 
+    return 0;
+}
