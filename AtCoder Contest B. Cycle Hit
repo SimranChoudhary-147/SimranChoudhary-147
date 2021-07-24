@@ -1,0 +1,36 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+  string s1,s2,s3,s4; cin>>s1>>s2>>s3>>s4;
+  int a[4]={0};
+  if(s1=="H" || s2=="H" || s3=="H" || s4=="H")
+  {
+      a[0]=1;
+  }
+  if(s1=="2B" || s2=="2B" || s3=="2B" || s4=="2B")
+  {
+      a[1]=1;
+  }
+  if(s1=="3B" || s2=="3B" || s3=="3B" || s4=="3B")
+  {
+      a[2]=1;
+  }
+  if(s1=="HR" || s2=="HR" || s3=="HR" || s4=="HR")
+  {
+      a[3]=1;
+  } int f=0;
+  for(int i=0;i<4;i++)
+  {
+      if(a[i]==0)
+      {
+          f=1;
+          break;
+      }
+      else
+        continue;
+  }
+  if(f) cout<<"No\n";
+  else
+  cout<<"Yes\n";
+}
