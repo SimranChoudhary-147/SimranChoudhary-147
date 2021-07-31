@@ -1,0 +1,25 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main()
+{
+   int t; cin>>t;
+   while(t--)
+   {
+       int n,a,b,c,d,p,q,y; cin>>n>>a>>b>>c>>d>>p>>q>>y;
+       int ar[n+1];
+       for(int i=1;i<=n;i++) cin>>ar[i];
+       
+       int ab=abs(ar[a]-ar[b])*p; int ans=ab;
+       int ac=abs(ar[a]-ar[c])*p;
+       if(ac<=y)
+       {
+          ans=min(ans, (y+ abs(ar[c]-ar[d]) * q) + abs(ar[d]-ar[b])*p); 
+       }
+       cout<<ans<<endl;
+       
+   }
+
+    return 0;
+}
