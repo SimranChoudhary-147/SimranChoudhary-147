@@ -1,0 +1,21 @@
+class Solution {
+public:
+    vector<vector<int>> levelOrder(Node* root) {
+         if (root == nullptr) return {};
+        queue<Node*> q;
+        q.push(root); 
+        vector<vector<int>> v;
+        while (!q.empty()) {
+            v.emplace_back();                           //bfs approach
+            for (int i = q.size(); i >= 1; i--) {
+                Node* curr = q.front(); q.pop();
+                v.back().push_back(curr->val);
+                for (Node* child : curr->children) {
+                    q.push(child);
+                }
+            }
+        }
+        return v;
+        
+    }
+};
