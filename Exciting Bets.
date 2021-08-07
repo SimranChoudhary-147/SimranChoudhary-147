@@ -1,0 +1,45 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define ll long long
+/*ll gcd(ll a,ll b)
+{
+    if(b==0) return a;
+    return (gcd(b,b%a));
+} */
+void solve()
+{
+ ll a,b;
+ cin>>a>>b;
+ if(a==b)
+ {
+     cout<<"0 0\n"; return;
+ } ll mg=abs(a-b);
+    cout<<mg<<" ";
+    ll ans=a%mg;
+    if(ans == b%mg)
+    {
+        ll d=mg-ans;
+        if(d<ans)
+        {
+            cout<<d<<endl;
+            return;
+        }
+        else
+        {
+            cout<<ans<<endl;
+            return;
+        }
+    }
+ 
+}
+ 
+int main()
+{
+    int t; cin>>t;
+    while(t--)
+    {
+        solve();
+    }
+ 
+    return 0;
+}
