@@ -1,0 +1,23 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define ll long long
+ 
+void solve()
+{
+ ll n; cin>>n;
+ ll a[n],sum=0;
+ for(auto x: a) { cin>>x; sum+=x; }
+ ll ans=sum%n;
+ cout<<ans*(n-ans)<<endl;
+}
+ 
+int main()
+{
+    int t; cin>>t;
+    while(t--)
+    {
+        solve();
+    }
+ 
+    return 0;
+}
