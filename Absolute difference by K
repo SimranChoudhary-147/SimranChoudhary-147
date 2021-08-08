@@ -1,0 +1,16 @@
+class Solution {
+  public:
+    long long countPairs(int n, int a[], int k) {
+        long long int count[100001]={0},c=0,pair;
+        for(long int j=0;j<n;j++)
+            count[a[j]%k]++;
+        for(long int i=0;i<k;i++)
+        {
+            if(count[i]>1)
+            {
+            pair=(count[i] * (count[i]-1))/2; //stores pair
+            c+=pair; }
+        }
+        return c;
+    }
+};
