@@ -1,0 +1,39 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+#define ll long long
+
+int main()
+{
+   ll n; cin>>n; ll ans= (n*(n+1))/2; vector<ll>a,b;
+   if(ans&1)
+   {
+       cout<<"NO\n"; 
+   } 
+   else
+   {
+       cout<<"YES\n";
+       ans=ans/2;
+       while(n) {
+       if(ans-n >=0 )
+       {
+           a.push_back(n);
+           ans-=n;
+       }
+       else
+       {
+           b.push_back(n);
+       }
+       n--;
+      }
+      cout << a.size() << endl;
+        for (ll ele : a)
+            cout << ele << " ";
+        cout << endl;
+        cout << b.size() << endl;
+        for (ll ele : b)
+            cout << ele << " ";
+   }
+   
+    return 0;
+}
