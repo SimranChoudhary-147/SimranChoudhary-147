@@ -1,0 +1,54 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define ll long long
+#define FAST ios_base::sync_with_stdio(false); cin.tie(NULL)
+ 
+void solve()
+{
+    int n;
+    cin>>n; int a[n+1];
+    ll evensum=0,oddsum=0;
+    for(int i=0;i<n;i++)
+    {
+        cin>>a[i];
+        if(i%2!=0)
+        {
+            oddsum+=abs(a[i]-1);
+        }
+        else
+        {
+            evensum+=abs(a[i]-1);
+        }
+    }
+    if(evensum<=oddsum)
+    {
+        for(int i=0;i<n;i++)
+        {
+            if(i%2!=0)
+            cout<<a[i]<<" ";
+            else
+            cout<<"1 ";
+        }
+    }   
+    else
+    {
+        for(int i=0;i<n;i++)
+        {
+            if(i%2==0)
+            cout<<a[i]<<" ";
+            else
+            cout<<"1 ";
+        }
+    }
+    cout<<endl;
+}
+ 
+int main()
+{
+    FAST;
+    int t;
+    cin>>t;
+    while(t--) {
+    solve(); }
+    return 0;
+}
