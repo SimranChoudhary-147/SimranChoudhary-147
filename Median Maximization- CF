@@ -1,0 +1,23 @@
+#include <bits/stdc++.h>
+ 
+using namespace std;
+#define ll long long int
+   
+void solve()
+{
+    ll n,s; cin>>n>>s;
+    if(n==1) { cout<<s<<endl; return; }
+    ll ind=n/2;
+    ll num=n-ind;
+    if(!(n&1)) { num++; cout<<s/num<<endl; return; }
+    cout<<s/num<<endl;
+    
+}
+ 
+int main()
+{
+    int t; cin>>t; while(t--) solve();
+ 
+    return 0;
+}
+   
