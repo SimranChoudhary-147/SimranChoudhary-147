@@ -1,0 +1,16 @@
+class Solution
+{
+    public:
+    int count(struct node* head, int search_for)
+    {
+        node* temp=head; int c=0;
+        if(head->data==search_for) { c+=1; temp=temp->next; }
+        while(temp != NULL)
+        {
+            if(temp->data == search_for) {
+                c+=1; }
+            temp=temp->next;
+        }
+        return c;
+    }
+};
