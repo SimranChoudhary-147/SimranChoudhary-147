@@ -1,0 +1,41 @@
+class Solution{
+public:
+    int kthElement(int a[], int b[], int n, int m, int k)
+    {
+        int i=0,j=0,f=0;
+        while(i<n && j<m)
+        {
+            if(a[i]<b[j])
+            {
+                f++;
+            
+            if(k==f)
+                return a[i];
+            i++;
+            }
+            else
+            {
+                f++;
+                if(k==f)
+                    return b[j];
+                j++;
+            }
+        }
+        while(i < n)
+    {
+        f++;
+        if(k == f)
+            return a[i];
+        i++;
+    }
+
+    while(j < m)
+    {
+        f++;
+        if(k == f)
+            return b[j];
+        j++;
+    }
+        
+    }
+   };
