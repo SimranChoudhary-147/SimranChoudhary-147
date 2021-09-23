@@ -1,0 +1,26 @@
+class Solution {
+    
+public:
+    void select(int target,int i,vector<vector<int>> &res,vector<int> &c,vector<int> &current)
+    {
+        
+        if(i == c.size() ) { if(target==0) res.push_back(current); return; }
+        
+            if(c[i] <= target) 
+            {
+                current.push_back(c[i]);
+                select(target-c[i],i,res,c,current);
+                current.pop_back();
+        
+            }
+           select(target,i+1,res,c,current);
+    }
+        
+   
+    vector<vector<int>> combinationSum(vector<int>& c, int target) {
+        vector<vector<int>>res;
+        vector<int>current;
+        select(target,0,res,c,current);
+      return res;  
+    }
+};
