@@ -1,0 +1,25 @@
+#include<stdio.h>
+
+int main()
+{
+	printf("Enter the number of baloons sanvi was given\n");
+	int n;
+	scanf("%d",&n);
+	int arr[n],i,j,k;
+	for(i=0;i<n;i++) 
+	{
+		scanf("%d",&arr[i]);
+	}
+	int count[10]={0};
+	for(j=0;j<n;j++)
+	{
+		count[arr[j]]++;
+	}
+	for(k=0;k<10;k++)
+	{
+		if(count[k]>=1)
+		{
+			printf("%d ",k);
+		}
+	}
+}
