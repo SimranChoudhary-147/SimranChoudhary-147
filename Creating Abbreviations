@@ -1,0 +1,17 @@
+#include <stdio.h>  
+#include <string.h>  
+   
+int main()  
+{  
+    int i;
+    char str1[100]; 
+    scanf("%[^\n]%*c",str1);  
+    for(i=0;i<strlen(str1);i++)
+    {
+        if(str1[i] >= 65 && str1[i] <=92)
+        {
+            printf("%c",str1[i]);
+        }
+    }
+    return 0;  
+}
