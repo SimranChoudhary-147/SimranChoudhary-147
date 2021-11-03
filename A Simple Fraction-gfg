@@ -1,0 +1,34 @@
+string fractionToDecimal(int n, int d) 
+	{
+	    int ans=n/d;
+	    string result=to_string(ans);
+	    if(n%d==0)
+	        return result;
+	   result+=".";
+	   int rem=n%d;
+	   map<int,int>mp;
+	   int ind; bool repeat=false;
+	   while(rem>0 && !repeat)
+	   {
+	       if(mp.find(rem)!=mp.end())
+	       {
+	           ind=mp[rem];
+	           repeat=true; break;
+	       }
+	       else
+	            mp[rem]=result.size();
+	       rem*=10;
+	       
+	       int t=rem/d;
+	       result+=to_string(t);
+	       rem%=d;
+	   }
+	       if (repeat) {
+            result += ")";
+            result.insert(ind, "(");
+	       }
+   
+    return result;
+	   
+	        
+	}
