@@ -1,0 +1,34 @@
+class Solution{
+  public:
+    //Function to check whether the list is palindrome.
+    int checkpalim(int z[],int len)
+    {
+        //int len=i+1;
+        int f=0;
+        for(int j=0;j<len-1;j++)
+        {
+            if(z[j]!=z[len-2-j])
+            {
+                f=0; break;
+            }
+            else
+                f=1;
+            
+        }
+        if(f==1) return 1;
+        else return 0;
+    }
+    bool isPalindrome(Node *head)
+    {
+       int a[100001];
+        Node *temp=head; int i=0;
+        while(temp!=NULL)
+        {
+            a[i++]=temp->data;
+            temp=temp->next;
+        }
+        
+        bool k=checkpalim(a,i+1);
+        return k;
+    }
+};
