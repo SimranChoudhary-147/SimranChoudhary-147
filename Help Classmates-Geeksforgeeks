@@ -1,0 +1,29 @@
+class Solution{
+    
+    public:
+    vector<int> help_classmate(vector<int> arr, int n) 
+    { 
+       stack<int>s; vector<int>vec;
+       for(int i=n-1;i>=0;i--)
+       {
+           if(s.empty())
+            vec.push_back(-1);
+           else if(!s.empty() && s.top()<arr[i])
+                vec.push_back(s.top());
+            else if(!s.empty() && s.top()>=arr[i])
+            {
+                while(!s.empty() && s.top()>=arr[i])
+                {
+                    s.pop();
+                }
+                if(s.empty()) { vec.push_back(-1); }
+                else vec.push_back(s.top());
+            }
+            else {
+                vec.push_back(-1); }
+            s.push(arr[i]);
+       }
+       reverse(vec.begin(),vec.end());
+       return vec;
+    } 
+};
