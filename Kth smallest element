@@ -1,0 +1,16 @@
+class Solution{
+    public:
+    // arr : given array
+    // l : starting index of the array i.e 0
+    // r : ending index of the array i.e size-1
+    // k : find kth smallest element and return using this function
+    int kthSmallest(int arr[], int l, int r, int k) {
+        int n=r+1;
+        priority_queue<int>que;
+        for(int i=0;i<n;i++) que.push(arr[i]);
+    
+        for(int i=0;i<(n-k);i++) { que.pop(); }
+        
+        return que.top();
+    }
+};
