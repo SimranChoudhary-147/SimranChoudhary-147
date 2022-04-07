@@ -1,0 +1,25 @@
+class Solution {
+  public:
+    int getMinDiff(int arr[], int n, int k) {
+        int maxi,mini;
+        sort(arr,arr+n);
+        int b=arr[n-1]-k;
+        int s=arr[0]+k;
+        int ans=arr[n-1]-arr[0];
+        
+        for(int i=1;i<n;i++)
+        {
+            if(arr[i]-k>=0)
+            {
+                mini=min(s,arr[i]-k);
+                maxi=max(b,arr[i-1]+k);
+                ans=min(ans,maxi-mini);
+            }
+            else
+                continue;
+            
+        }
+        return ans;
+        
+    }
+};
