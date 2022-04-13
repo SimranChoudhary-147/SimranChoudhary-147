@@ -1,0 +1,29 @@
+ int findLongestConseqSubseq(int arr[], int N)
+    {
+    unordered_set<int>s;
+    int maxi=INT_MIN,mini=INT_MAX;
+      for(int i=0;i<N;i++)
+      {
+          s.insert(arr[i]);
+          maxi=max(arr[i],maxi);
+          mini=min(arr[i],mini);
+      } 
+      //for(auto it: s) cout<<it<<" ";
+      int count=0;
+      int maxc=INT_MIN;
+      //cout<<mini<<" "<<maxi<<endl;
+      
+      for(int j=mini;j<=maxi;j++)
+      { 
+    
+         if(s.find(j)!=s.end()) {
+                count=count+1;
+                 maxc=max(count,maxc);}
+            else {
+          maxc=max(count,maxc);
+             count=0;  }
+          
+      }
+         
+      return maxc;
+    }
