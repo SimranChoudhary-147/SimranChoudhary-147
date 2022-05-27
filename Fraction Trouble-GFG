@@ -1,0 +1,21 @@
+class Solution {
+  public:
+    vector<int> numAndDen(int n, int d) 
+    {
+        vector<int>ans;
+        double fraction=(double)n/d;
+        double maxi=-1;
+        for(int i=n+1;i<=10000;i++)
+        {
+            int val=(i*d)/n+1; if(val>10000) break;   //value cannot exceed 10000
+            double value=(double)i/val;
+            if(value<fraction && value>maxi)
+            {
+                maxi=value;
+                ans={i,val};
+            }
+        }
+        return (ans);
+        
+    }
+};
