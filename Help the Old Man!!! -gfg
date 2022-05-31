@@ -1,0 +1,24 @@
+//Tower of hanoi problem.
+class Solution{
+    int c=0;
+    vector<int>ans;
+public:
+void towerofhanoi(int plates,int n,int b1,int b3,int b2)
+{
+    if(plates==0) return;
+    towerofhanoi(plates-1,n,b1,b2,b3);
+    c++;
+    if(c==n)
+    {
+        ans.push_back(b1);
+        ans.push_back(b3);
+        return;
+    }
+    towerofhanoi(plates-1,n,b2,b3,b1);
+}
+    vector<int> shiftPile(int N, int n){
+        int b1=1,b2=2,b3=3;
+        towerofhanoi(N,n,b1,b3,b2);
+        return ans;
+    }
+};
