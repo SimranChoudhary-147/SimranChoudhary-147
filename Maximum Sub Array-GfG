@@ -1,0 +1,39 @@
+class Solution{
+public:
+	vector<int> findSubarray(int a[], int n) {
+	    int init=0,ind=0;
+	    int maxsum=INT_MIN; long long int currsum=0;
+	    int start=0,end=0;
+	    while(ind<n)
+	    {
+	        if(a[ind]>=0)
+	        {
+	            currsum+=a[ind];
+	            if(currsum>maxsum)
+	            {
+	                maxsum=currsum;
+	                start=init,end=ind;
+	            }
+	            else if(currsum==maxsum)
+	            {
+	                if(ind-init > end-start) start=init,end=ind;
+	            }
+	        }
+	        else {
+	            init=ind+1, currsum=0; }
+	        
+	        ind++;
+	    }
+	        
+	
+	        
+
+	    if(end==0 and a[end]<0) return {-1};
+	    vector<int>ans;
+	    for(int i=start;i<=end;i++)
+	    {
+	        ans.push_back(a[i]);
+	    }
+	    return ans;
+	}
+};
