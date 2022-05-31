@@ -1,0 +1,21 @@
+class Solution{
+    public:
+    long long countPairs(int N, int X, vector<int> numbers){
+       long long ans = 0;
+       if(N == 1 || X < 10) return ans;     //base case
+        string s1, s2;
+       map<string, int> mp;
+       for(auto x : numbers) mp[to_string(x)]++;       //numbers count are stored in the map after converting it to string key and value will have the count of those keys.
+       string str = to_string(X);
+       int n = str.size();
+      
+       for(int i=1;i<n;i++) {
+           s1 = str.substr(0,i);
+           s2 = str.substr(i,n-i);
+           if(s1 != s2) ans += mp[s1]*mp[s2];           //total number of combinations possible
+           else 
+            ans += (mp[s1]-1)*mp[s1];
+       }
+       return ans;
+    }
+};
