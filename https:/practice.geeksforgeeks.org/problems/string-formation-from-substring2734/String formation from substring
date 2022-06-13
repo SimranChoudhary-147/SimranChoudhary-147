@@ -1,0 +1,32 @@
+class Solution{
+public:
+string repeat(int newval, string substring)
+{
+    string ans=substring;
+    for(int i=1;i<newval;i++)
+    {
+        ans+=substring;
+    }
+    // cout<<ans<<endl;
+    return ans;
+}
+		
+	int isRepeat(string s)
+	{
+	    int n=s.size();
+	    for(int i=1;i<n/2+1;i++)
+	    {
+	       
+	       // int vald=n/i; 
+	       // cout<<vald<<endl;
+	        string substring=s.substr(0,i);
+	       //cout<<substring<<endl;
+	        int newval=n/substring.size();
+	        string ans=repeat(newval,substring);
+	        if(s==ans) return 1;
+	    }
+	    return 0;
+	    
+	    
+	}
+};
