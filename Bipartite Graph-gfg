@@ -1,0 +1,50 @@
+class Solution{
+public:
+bool isB( vector<int>adj[],int src,int colorArr[])
+{
+    // bfs  queue<int>q;
+	   // colorArr[src]=1;
+	   // q.push(src);
+	   // while(!q.empty())
+	   // {
+	   //     int u=q.front();
+	   //     q.pop();
+	   //     if(adj[u][u]==1) return false;
+	   //     for(int v=0;v<V;++v)
+	   //     {
+	   //         if(adj[u][v] && colorArr[v]==-1)
+	   //         {
+	   //             colorArr[v]=1-colorArr[u];
+	   //             q.push(v);
+	   //         }
+	   //         else if(adj[u][v] && colorArr[u]==colorArr[v])
+	   //           return false;
+	            
+	            
+	   //     }
+	   //dfs approach
+	    if(colorArr[src] == -1) colorArr[src] = 1;
+        for(auto it:adj[src]){
+            if(colorArr[it] == -1){
+                colorArr[it] = 1 - colorArr[src];
+                if(isB(adj,it,colorArr) == false) return false;
+            }
+            else if(colorArr[it] == colorArr[src]) return false;
+        }
+        return true;
+	       
+	   
+}
+	bool isBipartite(int V, vector<int>adj[]){
+	   int colorArr[V];
+	   memset(colorArr,-1,sizeof (colorArr));
+	   for(int i=0;i<V;i++)
+	   {
+	       if(colorArr[i]==-1) {
+	       if( isB(adj,i,colorArr)==false) return false;
+	       }
+	   }
+	   
+	   return true;
+	}
+  };
