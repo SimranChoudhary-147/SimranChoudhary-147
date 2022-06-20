@@ -1,0 +1,26 @@
+class Solution{
+    public:
+    int maxLen(vector<int>&a, int n)
+    {   
+        // Your code here
+        int maxi=0;
+        for(int i=1;i<n;i++)
+        {
+            a[i]+=a[i-1];
+        }
+        unordered_map<int,int>mp;
+        for(int i=0;i<n;i++)
+        {
+            if(mp[a[i]] || a[i]==0)
+            {
+                maxi=max(maxi,i-mp[a[i]]+1);
+            }
+            else
+            {
+                mp[a[i]]=i+1;
+            }
+        }
+        return maxi;
+        
+    }
+};
